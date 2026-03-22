@@ -1,0 +1,11 @@
+---
+- name: Config_VLAN
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Create VLAN 10
+      ios_config:
+        lines:
+          - vlan 10
+          - name SALES
