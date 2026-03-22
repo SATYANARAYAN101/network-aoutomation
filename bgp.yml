@@ -1,0 +1,66 @@
+routers:
+
+  R1:
+    device_type: cisco_ios
+    host: 192.168.196.133
+    username: satyanarayan
+    password: satya@123
+    asn: 65002
+
+    interfaces:
+      - name: g3/0
+        ip: 192.168.23.2
+        mask: 255.255.255.0
+      - name: g4/0
+        ip: 192.168.12.2
+        mask: 255.255.255.0
+
+    neighbors:
+      - ip: 192.168.23.3
+        remote_as: 65003
+      - ip: 192.168.12.4
+        remote_as: 65004
+
+
+  R6:
+    device_type: cisco_ios
+    host: 192.168.196.134
+    username: admin
+    password: admin
+    asn: 65003
+
+    interfaces:
+      - name: g1/0
+        ip: 192.168.23.3
+        mask: 255.255.255.0
+      - name: g2/0
+        ip: 192.168.34.3
+        mask: 255.255.255.0
+
+    neighbors:
+      - ip: 192.168.23.2
+        remote_as: 65002
+      - ip: 192.168.34.4
+        remote_as: 65004
+
+
+  R7:
+    device_type: cisco_ios
+    host: 192.168.196.135
+    username: admin
+    password: admin
+    asn: 65004
+
+    interfaces:
+      - name: g0/1
+        ip: 192.168.12.4
+        mask: 255.255.255.0
+      - name: g1/0
+        ip: 192.168.34.4
+        mask: 255.255.255.0
+
+    neighbors:
+      - ip: 192.168.12.2
+        remote_as: 65002
+      - ip: 192.168.34.3
+        remote_as: 65003
